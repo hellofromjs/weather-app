@@ -1,5 +1,5 @@
 export default {
-	'clear': 'clear-day.svg',
+	'clear': 'moon-new.svg',
 	'partly-cloudy': 'partly-cloudy-day.svg',
 	'variable-cloudiness': 'overcast.svg',
 	'cloudy-with-sunny-intervals': 'overcast-day.svg',
