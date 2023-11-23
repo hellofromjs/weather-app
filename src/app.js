@@ -120,13 +120,13 @@ places_input.addEventListener('input', async (e) => {
 
 		if (forecasts.error !== undefined)
 		{
+			temperatures_wrapper.classList.add('d-none');
 			alert_wrapper.classList.remove('d-none');
 			alert_wrapper.querySelector('.alert').textContent = `Weather service error: ${forecasts.error.message}`;
 			return;
 		}
 
 		alert_wrapper.classList.add('d-none');
-	
 		temperatures_wrapper.classList.remove('d-none');
 		save_location_btn.disabled = false;
 		
