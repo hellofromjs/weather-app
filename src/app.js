@@ -105,17 +105,30 @@ save_location_btn.addEventListener('click', e => {
 })
 
 places_input.addEventListener('input', async (e) => {
-	is_selected_from_dropdown = e.inputType ? false : true;
+	is_selected_from_dropdown = e.inputType == "insertReplacementText" || e.inputType == undefined ? true : false;
+
 
 	if (is_selected_from_dropdown == true)
 	{
 		// remove all temperatures
 		temperatures.replaceChildren();
-		temperatures_wrapper.classList.remove('d-none');
-		save_location_btn.disabled = false;
+		
 		let forecasts = await fetchForecasts(places_input.value);
 
+		const alert_wrapper = document.querySelector('#alert-wrapper');
+		
 
+		if (forecasts.error !== undefined)
+		{
+			alert_wrapper.classList.remove('d-none');
+			alert_wrapper.querySelector('.alert').textContent = `Weather service error: ${forecasts.error.message}`;
+			return;
+		}
+
+		alert_wrapper.classList.add('d-none');
+	
+		temperatures_wrapper.classList.remove('d-none');
+		save_location_btn.disabled = false;
 		
 
 		const group_by_date = (forecasts) =>

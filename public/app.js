@@ -136,23 +136,33 @@ save_location_btn.addEventListener('click', function (e) {
 });
 places_input.addEventListener('input', /*#__PURE__*/function () {
   var _ref = _asyncToGenerator( /*#__PURE__*/_regeneratorRuntime().mark(function _callee(e) {
-    var forecasts, group_by_date, find_closest_temperature, grouped_forecasts, closest_temps, _iterator3, _step3, temps, temperature_item;
+    var forecasts, alert_wrapper, group_by_date, find_closest_temperature, grouped_forecasts, closest_temps, _iterator3, _step3, temps, temperature_item;
     return _regeneratorRuntime().wrap(function _callee$(_context) {
       while (1) switch (_context.prev = _context.next) {
         case 0:
-          is_selected_from_dropdown = e.inputType ? false : true;
+          is_selected_from_dropdown = e.inputType == "insertReplacementText" || e.inputType == undefined ? true : false;
           if (!(is_selected_from_dropdown == true)) {
-            _context.next = 18;
+            _context.next = 24;
             break;
           }
           // remove all temperatures
           temperatures.replaceChildren();
+          _context.next = 5;
+          return (0,_modules_forecasts_js__WEBPACK_IMPORTED_MODULE_1__["default"])(places_input.value);
+        case 5:
+          forecasts = _context.sent;
+          alert_wrapper = document.querySelector('#alert-wrapper');
+          if (!(forecasts.error !== undefined)) {
+            _context.next = 11;
+            break;
+          }
+          alert_wrapper.classList.remove('d-none');
+          alert_wrapper.querySelector('.alert').textContent = "Weather service error: ".concat(forecasts.error.message);
+          return _context.abrupt("return");
+        case 11:
+          alert_wrapper.classList.add('d-none');
           temperatures_wrapper.classList.remove('d-none');
           save_location_btn.disabled = false;
-          _context.next = 7;
-          return (0,_modules_forecasts_js__WEBPACK_IMPORTED_MODULE_1__["default"])(places_input.value);
-        case 7:
-          forecasts = _context.sent;
           group_by_date = function group_by_date(forecasts) {
             var forecast_date = forecasts[0].forecastTimeUtc.split(' ')[0];
             var date_groups = [];
@@ -235,11 +245,11 @@ places_input.addEventListener('input', /*#__PURE__*/function () {
           } finally {
             _iterator3.f();
           }
-          _context.next = 19;
+          _context.next = 25;
           break;
-        case 18:
+        case 24:
           save_location_btn.disabled = true;
-        case 19:
+        case 25:
         case "end":
           return _context.stop();
       }
