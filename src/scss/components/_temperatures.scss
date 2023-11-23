@@ -1,0 +1,27 @@
+.temperatures {
+    padding: 38px 35px;
+    border-radius: 16px;
+    border: 1px solid var(--light-pop-boder, rgba(255, 255, 255, 0.15));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.20) 0%, rgba(0, 0, 0, 0.20) 100%), #1D2837;
+
+    /* Light/Pop_shadow */
+    box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(40px);
+
+    &__item {
+
+        img {
+            max-width: 36px;
+        }
+
+        &__day {
+            font-size: 16px;
+            font-weight: 500;
+        }  
+
+        &__temp {
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+}
