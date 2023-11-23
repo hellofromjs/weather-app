@@ -142,7 +142,7 @@ places_input.addEventListener('input', /*#__PURE__*/function () {
         case 0:
           is_selected_from_dropdown = e.inputType == "insertReplacementText" || e.inputType == undefined ? true : false;
           if (!(is_selected_from_dropdown == true)) {
-            _context.next = 24;
+            _context.next = 25;
             break;
           }
           // remove all temperatures
@@ -153,13 +153,14 @@ places_input.addEventListener('input', /*#__PURE__*/function () {
           forecasts = _context.sent;
           alert_wrapper = document.querySelector('#alert-wrapper');
           if (!(forecasts.error !== undefined)) {
-            _context.next = 11;
+            _context.next = 12;
             break;
           }
+          temperatures_wrapper.classList.add('d-none');
           alert_wrapper.classList.remove('d-none');
           alert_wrapper.querySelector('.alert').textContent = "Weather service error: ".concat(forecasts.error.message);
           return _context.abrupt("return");
-        case 11:
+        case 12:
           alert_wrapper.classList.add('d-none');
           temperatures_wrapper.classList.remove('d-none');
           save_location_btn.disabled = false;
@@ -245,11 +246,11 @@ places_input.addEventListener('input', /*#__PURE__*/function () {
           } finally {
             _iterator3.f();
           }
-          _context.next = 25;
+          _context.next = 26;
           break;
-        case 24:
-          save_location_btn.disabled = true;
         case 25:
+          save_location_btn.disabled = true;
+        case 26:
         case "end":
           return _context.stop();
       }
