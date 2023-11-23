@@ -11978,6 +11978,7 @@ textarea.form-control-lg {
 }
 body {
   color: black;
+  background-color: black;
 }
 
 .white {
@@ -11991,7 +11992,7 @@ body {
   width: 100%;
   border-radius: 16px;
   border: 1px solid var(--light-pop-boder, rgba(255, 255, 255, 0.15));
-  background: #121212;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #1D2837;
   /* Light/Pop_shadow */
   box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
   -webkit-backdrop-filter: blur(40px);
@@ -12008,8 +12009,14 @@ body {
   margin-top: 30px;
   margin-bottom: 20px;
 }
+.widget-basic__weather__name {
+  text-transform: capitalize;
+}
 .widget-basic__weather img {
   max-width: 96px;
+}
+.widget-basic__remove {
+  cursor: pointer;
 }
 
 .temperatures {
@@ -12023,7 +12030,8 @@ body {
           backdrop-filter: blur(40px);
 }
 .temperatures__item img {
-  max-width: 36px;
+  max-width: 60px;
+  width: 100%;
 }
 .temperatures__item__day {
   font-size: 16px;
