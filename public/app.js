@@ -35,11 +35,11 @@ storage = JSON.parse(storage) || [];
 if (storage.length > 0) {
   await init();
 }
-function get_datetime_string(date) {
-  var year = date.getFullYear();
-  var month = date.getMonth() + 1;
-  var day = date.getDate();
-  var hours = date.getUTCHours();
+function get_datetime_string(dateUTC) {
+  var year = dateUTC.getFullYear();
+  var month = dateUTC.getMonth() + 1;
+  var day = dateUTC.getDate();
+  var hours = dateUTC.getHours();
   return "".concat(year, "-").concat(month, "-").concat(day, " ").concat(hours, ":00:00");
 }
 function init() {
@@ -68,7 +68,7 @@ function _init() {
           try {
             for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
               forecastTimestamp = _step5.value;
-              if (forecastTimestamp.forecastTimeUtc == get_datetime_string(new Date())) {
+              if (forecastTimestamp.forecastTimeUtc == get_datetime_string(new Date(new Date().toUTCString().slice(0, -3)))) {
                 create_widget(forecastTimestamp, place);
               }
             }

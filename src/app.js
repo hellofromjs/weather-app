@@ -18,12 +18,12 @@ if (storage.length > 0){
 	await init();
 }
 
-function get_datetime_string(date)
+function get_datetime_string(dateUTC)
 {
-	let year = date.getFullYear()
-	let month = date.getMonth() + 1
-	let day = date.getDate()
-	let hours = date.getUTCHours()  
+	let year = dateUTC.getFullYear()
+	let month = dateUTC.getMonth() + 1
+	let day = dateUTC.getDate()
+	let hours = dateUTC.getHours()  
 
 	return `${year}-${month}-${day} ${hours}:00:00`;
 }
@@ -33,13 +33,11 @@ async function init()
 	for (const place of storage) {
 		let forecasts = await fetchForecasts(place);
 		for (const forecastTimestamp of forecasts.forecastTimestamps) {
-			if (forecastTimestamp.forecastTimeUtc == get_datetime_string(new Date()))
+			if (forecastTimestamp.forecastTimeUtc == get_datetime_string(new Date(new Date().toUTCString().slice(0, -3))))
 			{
 				create_widget(forecastTimestamp, place);
 			}
 		}
-		
-		
 	}
 }
 
