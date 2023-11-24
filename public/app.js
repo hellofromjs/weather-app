@@ -39,7 +39,7 @@ function get_datetime_string(dateUTC) {
   var year = dateUTC.getFullYear();
   var month = dateUTC.getMonth() + 1;
   var day = dateUTC.getDate();
-  var hours = dateUTC.getHours();
+  var hours = String(dateUTC.getHours()).padStart(2, "0");
   return "".concat(year, "-").concat(month, "-").concat(day, " ").concat(hours, ":00:00");
 }
 function init() {

@@ -23,7 +23,7 @@ function get_datetime_string(dateUTC)
 	let year = dateUTC.getFullYear()
 	let month = dateUTC.getMonth() + 1
 	let day = dateUTC.getDate()
-	let hours = dateUTC.getHours()  
+	let hours = String(dateUTC.getHours()).padStart(2, "0")
 
 	return `${year}-${month}-${day} ${hours}:00:00`;
 }

@@ -12011,6 +12011,7 @@ body {
 }
 .widget-basic__weather__name {
   text-transform: capitalize;
+  white-space: nowrap;
 }
 .widget-basic__weather img {
   max-width: 96px;
