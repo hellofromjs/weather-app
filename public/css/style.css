@@ -11977,6 +11977,7 @@ textarea.form-control-lg {
   }
 }
 body {
+  font-family: sans-serif;
   color: black;
   background-color: black;
 }
@@ -11993,14 +11994,12 @@ body {
   border-radius: 16px;
   border: 1px solid var(--light-pop-boder, rgba(255, 255, 255, 0.15));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #1D2837;
-  /* Light/Pop_shadow */
   box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
 }
 .widget-basic__info {
   color: rgba(255, 255, 255, 0.68);
-  font-size: 14px;
 }
 .widget-basic__city {
   font-weight: 500;
@@ -12012,6 +12011,7 @@ body {
 .widget-basic__weather__name {
   text-transform: capitalize;
   white-space: nowrap;
+  font-size: 15px;
 }
 .widget-basic__weather img {
   max-width: 96px;
@@ -12025,7 +12025,6 @@ body {
   border-radius: 16px;
   border: 1px solid var(--light-pop-boder, rgba(255, 255, 255, 0.15));
   background: linear-gradient(0deg, rgba(0, 0, 0, 0.2) 0%, rgba(0, 0, 0, 0.2) 100%), #1D2837;
-  /* Light/Pop_shadow */
   box-shadow: 0px 6px 20px 0px rgba(0, 0, 0, 0.2);
   -webkit-backdrop-filter: blur(40px);
           backdrop-filter: blur(40px);
