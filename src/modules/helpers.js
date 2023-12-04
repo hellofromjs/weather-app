@@ -2,8 +2,8 @@ import conditions from '../data/conditions.js'
 
 export const get_datetime_string = (dateUTC) => {
 	const year = dateUTC.getFullYear()
-	const month = dateUTC.getMonth() + 1
-	const day = dateUTC.getDate()
+	const month = String(dateUTC.getMonth() + 1).padStart(2, "0")
+	const day = String(dateUTC.getDate()).padStart(2, "0")
 	const hours = String(dateUTC.getHours()).padStart(2, "0")
 
 	return `${year}-${month}-${day} ${hours}:00:00`;
@@ -12,7 +12,7 @@ export const get_datetime_string = (dateUTC) => {
 // returns path to a weather icon
 export const get_weather_icon = (conditionCode) => {
 
-	const weather_icon = conditions[conditionCode];
+	let weather_icon = conditions[conditionCode];
 
 	if (weather_icon == undefined) {
 		weather_icon = 'star.svg';

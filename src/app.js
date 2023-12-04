@@ -14,7 +14,7 @@ const save_location_btn = document.querySelector('#save-location-btn');
 // init state on page load
 void async function init() {
 	await fetch_places();
-	load_widgets();
+	await load_widgets();
 }();
 
 // event listeners
